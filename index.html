@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlowDesk — Premium Productivity Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-midnight" data-theme="midnight">
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon">⚡</span>
+      <span class="logo-text">FlowDesk</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-section="dashboard" style="opacity: 1;">
+        <span class="nav-icon">◈</span>
+        <span class="nav-label">Dashboard</span>
+        <span class="nav-indicator"></span>
+      </button>
+      <button class="nav-item" data-section="tasks" style="opacity: 1;">
+        <span class="nav-icon">✓</span>
+        <span class="nav-label">Tasks</span>
+        <span class="nav-indicator"></span>
+      </button>
+      <button class="nav-item" data-section="planner" style="opacity: 1;">
+        <span class="nav-icon">◷</span>
+        <span class="nav-label">Planner</span>
+        <span class="nav-indicator"></span>
+      </button>
+      <button class="nav-item" data-section="pomodoro" style="opacity: 1;">
+        <span class="nav-icon">◎</span>
+        <span class="nav-label">Pomodoro</span>
+        <span class="nav-indicator"></span>
+      </button>
+      <button class="nav-item" data-section="motivation" style="opacity: 1;">
+        <span class="nav-icon">✦</span>
+        <span class="nav-label">Motivation</span>
+        <span class="nav-indicator"></span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="theme-switcher">
+        <span class="theme-label">Theme</span>
+        <div class="theme-swatches">
+          <button class="swatch active" data-theme="midnight" title="Midnight"></button>
+          <button class="swatch" data-theme="ocean" title="Ocean"></button>
+          <button class="swatch" data-theme="forest" title="Forest"></button>
+          <button class="swatch" data-theme="ember" title="Ember"></button>
+        </div>
+      </div>
+      <div class="sidebar-user">
+        <div class="user-avatar">FD</div>
+        <div class="user-info">
+          <span class="user-name">FlowDesk User</span>
+          <span class="user-status">● Online</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Mobile Menu Toggle -->
+  <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main class="main-content" id="mainContent">
+
+    <!-- ===== SECTION: DASHBOARD ===== -->
+    <section class="section active" id="section-dashboard">
+      <div class="section-header reveal-item">
+        <div>
+          <h1 class="section-title">Dashboard</h1>
+          <p class="section-subtitle" id="dateDisplay">Loading date...</p>
+        </div>
+        <div class="header-clock">
+          <span class="clock-time" id="clockTime">--:--</span>
+          <span class="clock-ampm" id="clockAmpm">--</span>
+        </div>
+      </div>
+
+      <!-- Hero Greeting -->
+      <div class="greeting-card card reveal-item">
+        <div class="greeting-left">
+          <div class="greeting-tag">Good <span id="greetingPart">morning</span> ☀️</div>
+          <h2 class="greeting-headline" id="greetingHeadline">Ready to be productive?</h2>
+          <p class="greeting-sub">You have <strong id="greetingTaskCount">0 tasks</strong> pending today.</p>
+        </div>
+        <div class="greeting-visual">
+          <div class="greeting-ring ring-1"></div>
+          <div class="greeting-ring ring-2"></div>
+          <div class="greeting-ring ring-3"></div>
+          <span class="greeting-emoji" id="greetingEmoji">🚀</span>
+        </div>
+      </div>
+
+      <!-- Widgets Row -->
+      <div class="widgets-grid">
+
+        <!-- Weather Widget -->
+        <div class="widget-card card reveal-item" id="weatherWidget">
+          <div class="widget-header">
+            <span class="widget-label">Weather</span>
+            <span class="widget-icon">⛅</span>
+          </div>
+          <div class="weather-main">
+            <span class="weather-temp" id="weatherTemp">--°</span>
+            <div class="weather-details">
+              <span class="weather-city" id="weatherCity">Locating...</span>
+              <span class="weather-desc" id="weatherDesc">—</span>
+            </div>
+          </div>
+          <div class="weather-meta">
+            <span id="weatherHumidity">Humidity: --%</span>
+            <span id="weatherWind">Wind: -- km/h</span>
+          </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="widget-card card reveal-item">
+          <div class="widget-header">
+            <span class="widget-label">Today's Focus</span>
+            <span class="widget-icon">◉</span>
+          </div>
+          <div class="stats-row">
+            <div class="stat-item">
+              <span class="stat-val" id="statPending">0</span>
+              <span class="stat-lbl">Pending</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-val" id="statDone">0</span>
+              <span class="stat-lbl">Done</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-val" id="statPomodoros">0</span>
+              <span class="stat-lbl">Sessions</span>
+            </div>
+          </div>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" id="progressBar" style="width:0%"></div>
+          </div>
+          <span class="progress-label" id="progressLabel">0% complete</span>
+        </div>
+
+        <!-- Quick Motivational Preview -->
+        <div class="widget-card card reveal-item" id="quotePreview">
+          <div class="widget-header">
+            <span class="widget-label">Daily Quote</span>
+            <span class="widget-icon">✦</span>
+          </div>
+          <p class="quote-preview-text" id="quotePreviewText">Loading your daily inspiration...</p>
+          <button class="btn-ghost btn-sm" onclick="navTo('motivation')">More quotes →</button>
+        </div>
+
+      </div>
+
+      <!-- Recent Tasks Preview -->
+      <div class="section-block reveal-item">
+        <div class="block-header">
+          <h3 class="block-title">Recent Tasks</h3>
+          <button class="btn-ghost btn-sm" onclick="navTo('tasks')">View all →</button>
+        </div>
+        <div class="task-preview-list" id="dashTaskPreview">
+          <div class="empty-state">No tasks yet — add some from Tasks!</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION: TASKS ===== -->
+    <section class="section" id="section-tasks">
+      <div class="section-header reveal-item">
+        <div>
+          <h1 class="section-title">Task Manager</h1>
+          <p class="section-subtitle">Organize, prioritize, and conquer your day.</p>
+        </div>
+        <div class="task-counters">
+          <span class="counter-badge" id="taskBadgePending">0 pending</span>
+          <span class="counter-badge done" id="taskBadgeDone">0 done</span>
+        </div>
+      </div>
+
+      <!-- Add Task Form -->
+      <div class="card add-task-card reveal-item">
+        <div class="add-task-row">
+          <input type="text" class="task-input" id="taskInput" placeholder="Add a new task..." autocomplete="off" />
+          <label class="important-toggle" id="importantToggle" title="Mark as important">
+            <input type="checkbox" id="taskImportant" />
+            <span class="star-icon">★</span>
+          </label>
+          <button class="btn-primary" id="addTaskBtn">Add Task</button>
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs reveal-item">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="pending">Pending</button>
+        <button class="filter-tab" data-filter="completed">Completed</button>
+        <button class="filter-tab" data-filter="important">⭐ Important</button>
+      </div>
+
+      <!-- Task List -->
+      <div class="task-list" id="taskList">
+        <div class="empty-state" id="taskEmptyState">
+          <div class="empty-icon">✓</div>
+          <p>No tasks here. Start adding your goals!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION: PLANNER ===== -->
+    <section class="section" id="section-planner">
+      <div class="section-header reveal-item">
+        <div>
+          <h1 class="section-title">Daily Planner</h1>
+          <p class="section-subtitle" id="plannerDateLabel">Schedule your hours</p>
+        </div>
+        <button class="btn-primary" id="clearPlannerBtn">Clear Day</button>
+      </div>
+
+      <div class="planner-grid" id="plannerGrid">
+        <!-- Generated by JS -->
+      </div>
+    </section>
+
+    <!-- ===== SECTION: POMODORO ===== -->
+    <section class="section" id="section-pomodoro">
+      <div class="section-header reveal-item">
+        <div>
+          <h1 class="section-title">Pomodoro Timer</h1>
+          <p class="section-subtitle">Deep work, one session at a time.</p>
+        </div>
+      </div>
+
+      <div class="pomodoro-layout">
+
+        <!-- Timer Card -->
+        <div class="card pomodoro-card reveal-item">
+          <div class="pomo-mode-tabs">
+            <button class="pomo-tab active" data-mode="work">Focus</button>
+            <button class="pomo-tab" data-mode="short">Short Break</button>
+            <button class="pomo-tab" data-mode="long">Long Break</button>
+          </div>
+
+          <div class="pomo-timer-wrap">
+            <svg class="pomo-ring" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+              <circle class="ring-track" cx="110" cy="110" r="100" />
+              <circle class="ring-progress" id="ringProgress" cx="110" cy="110" r="100"
+                stroke-dasharray="628.3"
+                stroke-dashoffset="0"
+                transform="rotate(-90 110 110)" />
+            </svg>
+            <div class="pomo-timer-display">
+              <span class="pomo-time" id="pomoTime">25:00</span>
+              <span class="pomo-mode-label" id="pomoModeLabel">Focus Session</span>
+            </div>
+          </div>
+
+          <div class="pomo-controls">
+            <button class="pomo-btn secondary" id="pomoPrev" title="Previous">⏮</button>
+            <button class="pomo-btn primary" id="pomoStartBtn">▶ Start</button>
+            <button class="pomo-btn secondary" id="pomoReset" title="Reset">↺</button>
+          </div>
+
+          <div class="pomo-session-dots" id="pomoSessionDots">
+            <!-- Dots generated by JS -->
+          </div>
+        </div>
+
+        <!-- Pomodoro Stats -->
+        <div class="pomodoro-sidebar">
+          <div class="card pomo-stat-card reveal-item">
+            <div class="pomo-stat-header">Today's Sessions</div>
+            <div class="pomo-stats-grid">
+              <div class="pomo-stat">
+                <span class="pomo-stat-val" id="pomoStatSessions">0</span>
+                <span class="pomo-stat-lbl">Completed</span>
+              </div>
+              <div class="pomo-stat">
+                <span class="pomo-stat-val" id="pomoStatFocus">0m</span>
+                <span class="pomo-stat-lbl">Focus Time</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card pomo-tip-card reveal-item">
+            <div class="pomo-tip-header">✦ Technique Tips</div>
+            <ul class="pomo-tips">
+              <li>Work for <strong>25 minutes</strong> without interruption</li>
+              <li>Take a <strong>5-min</strong> break between sessions</li>
+              <li>Every 4 sessions → <strong>long break</strong> (15 min)</li>
+              <li>One task per pomodoro for <strong>deep focus</strong></li>
+            </ul>
+          </div>
+
+          <div class="card pomo-history-card reveal-item">
+            <div class="pomo-tip-header">Session History</div>
+            <div class="pomo-history" id="pomoHistory">
+              <span class="empty-state-sm">No sessions yet today</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION: MOTIVATION ===== -->
+    <section class="section" id="section-motivation">
+      <div class="section-header reveal-item">
+        <div>
+          <h1 class="section-title">Motivation</h1>
+          <p class="section-subtitle">Daily wisdom to fuel your ambition.</p>
+        </div>
+        <button class="btn-primary" id="fetchQuoteBtn">New Quote ↻</button>
+      </div>
+
+      <!-- Hero Quote -->
+      <div class="card quote-hero-card reveal-item" id="quoteHeroCard">
+        <div class="quote-ornament left">"</div>
+        <div class="quote-content">
+          <p class="quote-hero-text" id="quoteHeroText">Loading your daily inspiration...</p>
+          <div class="quote-attribution">
+            <div class="quote-line"></div>
+            <span class="quote-author" id="quoteHeroAuthor">—</span>
+          </div>
+        </div>
+        <div class="quote-ornament right">"</div>
+        <button class="quote-save-btn" id="quoteSaveBtn" title="Save quote">♡ Save</button>
+      </div>
+
+      <!-- Quote Categories -->
+      <div class="quote-cats reveal-item">
+        <button class="cat-btn active" data-cat="all">All</button>
+        <button class="cat-btn" data-cat="life">Life</button>
+        <button class="cat-btn" data-cat="success">Success</button>
+        <button class="cat-btn" data-cat="mindset">Mindset</button>
+      </div>
+
+      <!-- Saved Quotes -->
+      <div class="section-block reveal-item">
+        <div class="block-header">
+          <h3 class="block-title">Saved Quotes</h3>
+          <button class="btn-ghost btn-sm" id="clearSavedBtn">Clear all</button>
+        </div>
+        <div class="saved-quotes-grid" id="savedQuotesGrid">
+          <div class="empty-state">Save quotes you love by clicking ♡ Save above.</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Overlay for mobile menu -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

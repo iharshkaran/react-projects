@@ -3,7 +3,7 @@ import Card from './components/Card'
 
 const jobs = [
   {
-    companyLogo: "https://imgs.search.brave.com/rMYhoSBn2NTW46eMWDfrpXtEULEbUGa9y2LZ66m1ROk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzZmLzRj/Lzc1LzZmNGM3NWRk/MDRhOTJlMGM1NjAw/MzMzZmM2ZmQ5Y2Uz/LmpwZw",
+    companyLogo: "/logos/amazon.webp",
     companyName: "Amazon",
     post: "Senior UI/UX Designer",
     postedDate: "5 days ago",
@@ -13,7 +13,7 @@ const jobs = [
     location: "San Francisco, CA"
   },
   {
-    companyLogo: "https://static.dezeen.com/uploads/2025/05/sq-google-g-logo-update_dezeen_2364_col_0.jpg",
+    companyLogo: "/logos/google.png",
     companyName: "Google",
     post: "Frontend Developer",
     postedDate: "2 days ago",
@@ -23,7 +23,7 @@ const jobs = [
     location: "Mountain View, CA"
   },
   {
-    companyLogo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOjh7meRtWaZWgmgF4aLR227G6IkaGEPmPplLXU2CHiBOejxxi6tOBk1Q&s=10",
+    companyLogo: "/logos/microsoft.webp",
     companyName: "Microsoft",
     post: "Backend Engineer",
     postedDate: "1 week ago",
@@ -33,7 +33,7 @@ const jobs = [
     location: "Seattle, WA"
   },
   {
-    companyLogo: "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/15844974/netflixlogo.0.0.1466448626.png?quality=90&strip=all&crop=1.2535702951444%2C0%2C97.492859409711%2C100&w=2400",
+    companyLogo: "/logos/netflix.webp",
     companyName: "Netflix",
     post: "React Developer",
     postedDate: "3 days ago",
@@ -43,7 +43,7 @@ const jobs = [
     location: "Los Gatos, CA"
   },
   {
-    companyLogo: "https://images.seeklogo.com/logo-png/27/1/apple-logo-png_seeklogo-272825.png",
+    companyLogo: "/logos/apple.jpg",
     companyName: "Apple",
     post: "Product Designer",
     postedDate: "6 days ago",
@@ -53,7 +53,7 @@ const jobs = [
     location: "Cupertino, CA"
   },
   {
-    companyLogo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYq7Q44IZaZV_veFoDZeJGgyTiED8noQ5lTNTkxfEqiA&s=10",
+    companyLogo: "/logos/meta.avif",
     companyName: "Meta",
     post: "Full Stack Developer",
     postedDate: "4 days ago",
@@ -63,7 +63,7 @@ const jobs = [
     location: "Menlo Park, CA"
   },
   {
-    companyLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/3840px-Spotify_logo_without_text.svg.png",
+    companyLogo: "/logos/spotify.png",
     companyName: "Spotify",
     post: "Mobile App Developer",
     postedDate: "1 day ago",
@@ -73,7 +73,7 @@ const jobs = [
     location: "Stockholm, Sweden"
   },
   {
-    companyLogo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREibn3wb0tqcMxIH16FoQaeqmgEpsQVW-WpVaSk-iU-g&s=10",
+    companyLogo: "/logos/adobe.png",
     companyName: "Adobe",
     post: "UI Developer",
     postedDate: "3 weeks ago",
@@ -83,7 +83,7 @@ const jobs = [
     location: "San Jose, CA"
   },
   {
-    companyLogo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcvJfmKzkVyvyxkJSXv9g2o6F8B1Y1dz2n9cFY7lsN_M5eXKO-FD_MYMo&s=10",
+    companyLogo: "/logos/tesla.jpg",
     companyName: "Tesla",
     post: "Software Engineer",
     postedDate: "2 weeks ago",
@@ -93,7 +93,7 @@ const jobs = [
     location: "Austin, TX"
   },
   {
-    companyLogo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmZnapMo62aKgpl4Y5MKW-l-gbhbyd9fCyqJa8Yl5FPQ&s=10",
+    companyLogo: "/logos/airbnb.png",
     companyName: "Airbnb",
     post: "Frontend Engineer",
     postedDate: "5 days ago",
@@ -103,7 +103,7 @@ const jobs = [
     location: "San Francisco, CA"
   },
   {
-    companyLogo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3r5Pp8196JW12Uxw4kiUZbcUEFFmoaJgQgNesHKkUCmbF9BlWturF2c0&s=10",
+    companyLogo: "/logos/uber.png",
     companyName: "Uber",
     post: "Data Analyst",
     postedDate: "1 week ago",
@@ -113,7 +113,7 @@ const jobs = [
     location: "Chicago, IL"
   },
   {
-    companyLogo: "https://img.magnific.com/premium-vector/vector-linkedin-apps-logo-rounded-asset-isolated_1004619-457.jpg?semt=ais_hybrid&w=740&q=80",
+    companyLogo: "/logos/linkedin.webp",
     companyName: "LinkedIn",
     post: "Software Developer",
     postedDate: "2 days ago",

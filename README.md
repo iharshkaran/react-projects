@@ -6,8 +6,8 @@ A collection of mini React projects built while learning React.js. Each project 
 
 | # | Project | Live Demo |
 |---|---------|-----------|
-| 01 | Job Cards UI | [🔗 View](https://react-job-cards.vercel.app) |
-| 02 | Customer Segmentation UI | [🔗 View](https://react-customer-segmentation-ui.vercel.app) |
+| 01 | Job Cards UI | 🔗 [View](https://react-job-cards.vercel.app) |
+| 02 | Customer Segmentation UI | 🔗 [View](https://react-customer-segmentation-ui.vercel.app) |
 
 > More projects will be added as I continue learning React.
 

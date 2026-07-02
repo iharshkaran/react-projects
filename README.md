@@ -8,7 +8,7 @@ A collection of mini React projects built while learning React.js. Each project 
 |---|---------|-----------|
 | 01 | Job Cards UI | 🔗 [View](https://react-job-cards.vercel.app) |
 | 02 | Customer Segmentation UI | 🔗 [View](https://react-customer-segmentation-ui.vercel.app) |
-| 03 | Counter | 🔗 [View](https://react-projects-counter-delta.vercel.app) |
+| 03 | Notes App | 🔗 Coming Soon... |
 
 > More projects will be added as I continue learning React.
 
